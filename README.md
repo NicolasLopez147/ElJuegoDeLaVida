@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Repasar la progrmación estructurada
+Repasar la programación estructurada
 
 ## Enunciado
 
