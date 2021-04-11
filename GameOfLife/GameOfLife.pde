@@ -4,6 +4,7 @@ int LARGO =600;
 int [][] tablero = new int [round(LARGO/tCelula)][round(ANCHO/tCelula)];
 int colorMalla = #92969D;
 int pausa = 0;
+int velocidad = 200;
 
 void setup() {
   background(#FAFCFF);
@@ -125,8 +126,22 @@ void draw() {
   dibujar();
   if (pausa == 1) {
     modificar_tablero();
+  }else{
+    println("El juego esta pausado");
   }
-  //delay(300);
+  //Sacado de: https://processing.org/reference/keyCode.html
+  if(keyPressed){
+    if (keyCode == RIGHT && velocidad > 0) {
+      velocidad-=100;
+    }
+    if (keyCode == LEFT && velocidad < 1500) {
+      velocidad+=100;
+    }
+  }
+  delay(velocidad);
+  if (pausa == 1){
+    println("Velocidad: ",velocidad);
+  }
 }
 // Sacado de: https://processing.org/reference/mouseWheel_.html
 void mouseWheel(MouseEvent event) {
